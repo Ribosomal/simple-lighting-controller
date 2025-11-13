@@ -1,14 +1,10 @@
 from machine import Pin
 from utime import sleep
+import neopixel
 
-pin = Pin("LED", Pin.OUT)
 
-print("LED starts flashing...")
-while True:
-    try:
-        pin.toggle()
-        sleep(1) # sleep 1sec
-    except KeyboardInterrupt:
-        break
-pin.off()
-print("Finished.")
+#temp
+fanPin: Pin = Pin(22) 
+fanNum: int = 30
+
+fanPixels: neopixel.NeoPixel = neopixel.NeoPixel(fanPin, fanNum)
